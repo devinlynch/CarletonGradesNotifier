@@ -69,12 +69,15 @@
     if(gradesArr == nil)
         return;
     
+    NSString *termId = [[json objectForKey:@"term"] objectForKey:@"id"];
+    
     NSMutableArray *grades  = [[NSMutableArray alloc] init];
     for(NSDictionary * gradeDic in gradesArr) {
         Grade *grade = [[Grade alloc] init];
         grade.grade = [gradeDic objectForKey:@"grade"];
         grade.courseDescription = [gradeDic objectForKey:@"courseDescription"];
         grade.courseTitle = [gradeDic objectForKey:@"courseTitle"];
+        grade.termId = termId;
         [grades addObject:grade];
     }
     NSLog(@"%@", grades);

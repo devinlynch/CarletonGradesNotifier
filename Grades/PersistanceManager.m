@@ -91,7 +91,7 @@
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
         NSString *querySQL = [NSString stringWithFormat:
-                              @"SELECT courseCode, grade, termId FROM grade"];
+                              @"SELECT courseCode, grade, termId FROM grade where courseCode=\"%@\" AND grade=\"%@\" AND termId=\"%@\"", grade.courseTitle, grade.grade, grade.termId];
         
         const char *query_stmt = [querySQL UTF8String];
         
@@ -99,23 +99,7 @@
                                query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
             while (sqlite3_step(statement) == SQLITE_ROW) {
-                
-                NSString *courseCode = [[NSString alloc]
-                                       initWithUTF8String:
-                                       (const char *) sqlite3_column_text(statement, 0)];
-                NSString *gradeString = [[NSString alloc]
-                                       initWithUTF8String:
-                                       (const char *) sqlite3_column_text(statement, 1)];
-                NSString *termId = [[NSString alloc]
-                                       initWithUTF8String:
-                                       (const char *) sqlite3_column_text(statement, 2)];
-
-                if([grade.termId isEqualToString: termId] && [grade.courseTitle isEqualToString: courseCode] && [grade.grade isEqualToString: gradeString]) {
                     return YES;
-                }
-                
-                
-                break;
             }
             sqlite3_finalize(statement);
         }
