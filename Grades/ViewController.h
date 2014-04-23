@@ -10,4 +10,9 @@
 
 @interface ViewController : UIViewController
 
+@property IBOutlet UITextField* usernameTxt;
+@property IBOutlet UITextField* pwdTxt;
+
+-(IBAction)didPressGo:(id)sender;
+
 @end

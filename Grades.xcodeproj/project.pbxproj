@@ -21,6 +21,12 @@
 		992CDF2F190769AE000BAD82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 992CDF11190769AE000BAD82 /* UIKit.framework */; };
 		992CDF37190769AE000BAD82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 992CDF35190769AE000BAD82 /* InfoPlist.strings */; };
 		992CDF39190769AE000BAD82 /* GradesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF38190769AE000BAD82 /* GradesTests.m */; };
+		992CDF4B190769F4000BAD82 /* ServerAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF4A190769F4000BAD82 /* ServerAccess.m */; };
+		992CDF4E19076DEC000BAD82 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF4D19076DEC000BAD82 /* Utils.m */; };
+		992CDF5119077273000BAD82 /* GradesFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF5019077273000BAD82 /* GradesFetcher.m */; };
+		992CDF54190772E5000BAD82 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF53190772E5000BAD82 /* KeychainItemWrapper.m */; };
+		992CDF57190774CD000BAD82 /* KeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF56190774CD000BAD82 /* KeyValue.m */; };
+		992CDF5A19077606000BAD82 /* Grade.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF5919077606000BAD82 /* Grade.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,18 @@
 		992CDF34190769AE000BAD82 /* GradesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GradesTests-Info.plist"; sourceTree = "<group>"; };
 		992CDF36190769AE000BAD82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		992CDF38190769AE000BAD82 /* GradesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradesTests.m; sourceTree = "<group>"; };
+		992CDF49190769F4000BAD82 /* ServerAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerAccess.h; sourceTree = "<group>"; };
+		992CDF4A190769F4000BAD82 /* ServerAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerAccess.m; sourceTree = "<group>"; };
+		992CDF4C19076DEC000BAD82 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		992CDF4D19076DEC000BAD82 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		992CDF4F19077273000BAD82 /* GradesFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradesFetcher.h; sourceTree = "<group>"; };
+		992CDF5019077273000BAD82 /* GradesFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradesFetcher.m; sourceTree = "<group>"; };
+		992CDF52190772E5000BAD82 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainItemWrapper.h; path = "../../Kings-N-Thing-Client/scaffold/src/Classes/KeychainItemWrapper.h"; sourceTree = "<group>"; };
+		992CDF53190772E5000BAD82 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainItemWrapper.m; path = "../../Kings-N-Thing-Client/scaffold/src/Classes/KeychainItemWrapper.m"; sourceTree = "<group>"; };
+		992CDF55190774CD000BAD82 /* KeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValue.h; sourceTree = "<group>"; };
+		992CDF56190774CD000BAD82 /* KeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValue.m; sourceTree = "<group>"; };
+		992CDF5819077606000BAD82 /* Grade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grade.h; sourceTree = "<group>"; };
+		992CDF5919077606000BAD82 /* Grade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grade.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +130,10 @@
 		992CDF13190769AE000BAD82 /* Grades */ = {
 			isa = PBXGroup;
 			children = (
-				992CDF1C190769AE000BAD82 /* AppDelegate.h */,
-				992CDF1D190769AE000BAD82 /* AppDelegate.m */,
-				992CDF1F190769AE000BAD82 /* Main.storyboard */,
-				992CDF22190769AE000BAD82 /* ViewController.h */,
-				992CDF23190769AE000BAD82 /* ViewController.m */,
+				992CDF5E1907782D000BAD82 /* Fetcher */,
+				992CDF5D1907781E000BAD82 /* Utils */,
+				992CDF5B190777F6000BAD82 /* Views and Controllers */,
+				992CDF44190769D1000BAD82 /* Server */,
 				992CDF25190769AE000BAD82 /* Images.xcassets */,
 				992CDF14190769AE000BAD82 /* Supporting Files */,
 			);
@@ -150,6 +167,51 @@
 				992CDF35190769AE000BAD82 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		992CDF44190769D1000BAD82 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				992CDF49190769F4000BAD82 /* ServerAccess.h */,
+				992CDF4A190769F4000BAD82 /* ServerAccess.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		992CDF5B190777F6000BAD82 /* Views and Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				992CDF1C190769AE000BAD82 /* AppDelegate.h */,
+				992CDF1D190769AE000BAD82 /* AppDelegate.m */,
+				992CDF1F190769AE000BAD82 /* Main.storyboard */,
+				992CDF22190769AE000BAD82 /* ViewController.h */,
+				992CDF23190769AE000BAD82 /* ViewController.m */,
+			);
+			name = "Views and Controllers";
+			sourceTree = "<group>";
+		};
+		992CDF5D1907781E000BAD82 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				992CDF4C19076DEC000BAD82 /* Utils.h */,
+				992CDF4D19076DEC000BAD82 /* Utils.m */,
+				992CDF52190772E5000BAD82 /* KeychainItemWrapper.h */,
+				992CDF53190772E5000BAD82 /* KeychainItemWrapper.m */,
+				992CDF55190774CD000BAD82 /* KeyValue.h */,
+				992CDF56190774CD000BAD82 /* KeyValue.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		992CDF5E1907782D000BAD82 /* Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				992CDF4F19077273000BAD82 /* GradesFetcher.h */,
+				992CDF5019077273000BAD82 /* GradesFetcher.m */,
+				992CDF5819077606000BAD82 /* Grade.h */,
+				992CDF5919077606000BAD82 /* Grade.m */,
+			);
+			name = Fetcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +313,13 @@
 			files = (
 				992CDF24190769AE000BAD82 /* ViewController.m in Sources */,
 				992CDF1E190769AE000BAD82 /* AppDelegate.m in Sources */,
+				992CDF4B190769F4000BAD82 /* ServerAccess.m in Sources */,
+				992CDF5A19077606000BAD82 /* Grade.m in Sources */,
+				992CDF57190774CD000BAD82 /* KeyValue.m in Sources */,
+				992CDF4E19076DEC000BAD82 /* Utils.m in Sources */,
 				992CDF1A190769AE000BAD82 /* main.m in Sources */,
+				992CDF5119077273000BAD82 /* GradesFetcher.m in Sources */,
+				992CDF54190772E5000BAD82 /* KeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
