@@ -9,5 +9,5 @@
 #import "Grade.h"
 
 @implementation Grade
-@synthesize courseDescription, courseTitle, grade;
+@synthesize courseDescription, courseTitle, grade, termId;
 @end

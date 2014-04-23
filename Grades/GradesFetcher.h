@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class Grade;
 @interface GradesFetcher : NSObject
 
 +(void) fetchGrades;
 +(void) updateUsername: (NSString*) username andPassword: (NSString*) password;
 +(KeyValue*) getStoredUsernameAndPassword;
+
++(void)fetchGradesWithNewGrade: (void (^)(Grade *grade)) newGradesBlock andNoNewGrade: (void (^)(void)) noNewGradeBlock andError: (void (^)(void)) errorBlock;
 
 @end

@@ -10,6 +10,6 @@
 
 @interface Grade : NSObject
 
-@property NSString *courseDescription, *courseTitle, *grade;
+@property NSString *courseDescription, *courseTitle, *grade, *termId;
 
 @end

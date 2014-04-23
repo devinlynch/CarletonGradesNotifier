@@ -27,6 +27,8 @@
 		992CDF54190772E5000BAD82 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF53190772E5000BAD82 /* KeychainItemWrapper.m */; };
 		992CDF57190774CD000BAD82 /* KeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF56190774CD000BAD82 /* KeyValue.m */; };
 		992CDF5A19077606000BAD82 /* Grade.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF5919077606000BAD82 /* Grade.m */; };
+		999C859C190808870088F6BE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 999C859B190808870088F6BE /* libsqlite3.dylib */; };
+		999C859F190808B20088F6BE /* PersistanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C859E190808B20088F6BE /* PersistanceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,9 @@
 		992CDF56190774CD000BAD82 /* KeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValue.m; sourceTree = "<group>"; };
 		992CDF5819077606000BAD82 /* Grade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grade.h; sourceTree = "<group>"; };
 		992CDF5919077606000BAD82 /* Grade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grade.m; sourceTree = "<group>"; };
+		999C859B190808870088F6BE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		999C859D190808B20088F6BE /* PersistanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistanceManager.h; sourceTree = "<group>"; };
+		999C859E190808B20088F6BE /* PersistanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistanceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				999C859C190808870088F6BE /* libsqlite3.dylib in Frameworks */,
 				992CDF10190769AE000BAD82 /* CoreGraphics.framework in Frameworks */,
 				992CDF12190769AE000BAD82 /* UIKit.framework in Frameworks */,
 				992CDF0E190769AE000BAD82 /* Foundation.framework in Frameworks */,
@@ -119,6 +125,7 @@
 		992CDF0C190769AE000BAD82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				999C859B190808870088F6BE /* libsqlite3.dylib */,
 				992CDF0D190769AE000BAD82 /* Foundation.framework */,
 				992CDF0F190769AE000BAD82 /* CoreGraphics.framework */,
 				992CDF11190769AE000BAD82 /* UIKit.framework */,
@@ -210,6 +217,8 @@
 				992CDF5019077273000BAD82 /* GradesFetcher.m */,
 				992CDF5819077606000BAD82 /* Grade.h */,
 				992CDF5919077606000BAD82 /* Grade.m */,
+				999C859D190808B20088F6BE /* PersistanceManager.h */,
+				999C859E190808B20088F6BE /* PersistanceManager.m */,
 			);
 			name = Fetcher;
 			sourceTree = "<group>";
@@ -261,6 +270,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Devin Lynch";
 				TargetAttributes = {
+					992CDF09190769AE000BAD82 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					992CDF2A190769AE000BAD82 = {
 						TestTargetID = 992CDF09190769AE000BAD82;
 					};
@@ -316,6 +332,7 @@
 				992CDF4B190769F4000BAD82 /* ServerAccess.m in Sources */,
 				992CDF5A19077606000BAD82 /* Grade.m in Sources */,
 				992CDF57190774CD000BAD82 /* KeyValue.m in Sources */,
+				999C859F190808B20088F6BE /* PersistanceManager.m in Sources */,
 				992CDF4E19076DEC000BAD82 /* Utils.m in Sources */,
 				992CDF1A190769AE000BAD82 /* main.m in Sources */,
 				992CDF5119077273000BAD82 /* GradesFetcher.m in Sources */,
@@ -524,6 +541,7 @@
 				992CDF3E190769AE000BAD82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		992CDF3F190769AE000BAD82 /* Build configuration list for PBXNativeTarget "GradesTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +550,7 @@
 				992CDF41190769AE000BAD82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
