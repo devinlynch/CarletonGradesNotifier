@@ -21,7 +21,7 @@
     docsDir = dirPaths[0];
     databasePath = [[NSString alloc]
      initWithString: [docsDir stringByAppendingPathComponent:
-                      @"carletonGradesDB.db"]];
+                      @"carletonGradesDB1.db"]];
     
     return self;
 }
@@ -37,7 +37,7 @@
         {
             char *errMsg;
             const char *sql_stmt =
-            "CREATE TABLE IF NOT EXISTS grade (ID INTEGER PRIMARY KEY AUTOINCREMENT, courseCode TEXT, grade TEXT, termId TEXT)";
+            "CREATE TABLE IF NOT EXISTS grade (courseCode TEXT, grade TEXT, termId TEXT)";
             
             if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK)
             {
@@ -69,6 +69,7 @@
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(database, insert_stmt,
                            -1, &statement, NULL);
+        
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
             NSLog(@"Contact added");

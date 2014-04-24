@@ -67,7 +67,12 @@ static NSString *_cachedUsername;
 +(void)fetchGradesWithNewGrade: (void (^)(Grade *grade)) newGradesBlock andNoNewGrade: (void (^)(void)) noNewGradeBlock allGradesBlock: (void (^)(TermGrades *grades)) allGradesBlock andError: (void (^)(void)) errorBlock forTerm: (NSString*) termId{
     
     if(_cachedToken != nil && _cachedUsername != nil) {
-        [self getGradesWithUsername:_cachedUsername andToken:_cachedToken forTerm:termId withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock allGradesBlock:allGradesBlock andError:errorBlock];
+        [self getGradesWithUsername:_cachedUsername andToken:_cachedToken forTerm:termId withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock allGradesBlock:allGradesBlock andError:^{
+            // If the first try fails, we will reauthenticate and try again
+            [self authenticateWithSuccess:^(NSString* token, NSString* username) {
+                [self getGradesWithUsername:username andToken:token forTerm:termId withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock allGradesBlock:allGradesBlock andError:errorBlock];
+            }andError:errorBlock];
+        }];
     } else{
         [self authenticateWithSuccess:^(NSString* token, NSString* username) {
             [self getGradesWithUsername:username andToken:token forTerm:termId withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock allGradesBlock:allGradesBlock andError:errorBlock];
@@ -165,6 +170,11 @@ static NSString *_cachedUsername;
 }
 
 +(void) notifyGradeAdded: (Grade*) grade{
+    UIApplicationState appState = [[UIApplication sharedApplication] applicationState];
+    
+    if(appState == UIApplicationStateActive)
+        return;
+    
     UILocalNotification *localNotif = [[UILocalNotification alloc] init];
     if (localNotif == nil)
         return;

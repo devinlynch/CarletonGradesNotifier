@@ -58,6 +58,23 @@
     } andError: ^{
         completionHandler(UIBackgroundFetchResultFailed);
     } forTerm:nil];
+    [self sendTestPush];
 }
 
+-(void) sendTestPush{
+    UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+    if (localNotif == nil)
+        return;
+    localNotif.fireDate = [NSDate date];
+    localNotif.timeZone = [NSTimeZone defaultTimeZone];
+    
+    localNotif.alertBody = [NSString stringWithFormat:@"Background ran"];
+    localNotif.alertAction = NSLocalizedString(@"View Details", nil);
+    
+    localNotif.soundName = UILocalNotificationDefaultSoundName;
+    localNotif.applicationIconBadgeNumber = 1;
+    
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+}
 @end
