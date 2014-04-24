@@ -92,6 +92,10 @@ static NSString *_cachedUsername;
             return;
         }
         
+        if(response == nil) {
+            errorBlock();
+        }
+        
         NSLog(@"%@", response);
         [self parseGradesAndNotify: response withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock allGradesBlock:allGradesBlock andError:errorBlock];
     };
@@ -188,6 +192,7 @@ static NSString *_cachedUsername;
     localNotif.soundName = UILocalNotificationDefaultSoundName;
     localNotif.applicationIconBadgeNumber = 1;
     
+    [localNotif.userInfo setValue:grade forKeyPath:@"newGrade"];
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 }

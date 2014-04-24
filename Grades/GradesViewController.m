@@ -43,6 +43,8 @@
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:refreshControl];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGrade:) name:@"newGrade" object:nil];
 }
 
 -(void) refresh:(id)sender{
@@ -50,6 +52,10 @@
         [self loadGradesForTerm:termGrades.termId shouldShowAnimation:NO];
     else
         [self loadGradesForTerm:nil shouldShowAnimation:NO];
+}
+
+-(void) newGrade:(NSNotification*) notif{
+    [self loadGradesForTerm:termGrades.termId shouldShowAnimation:YES];
 }
 
 -(void) loadGradesForTerm: (NSString*) termId shouldShowAnimation: (BOOL) shouldShowAnimation {
@@ -181,5 +187,9 @@
     return 0.0;
 }
 
+
+-(void) dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

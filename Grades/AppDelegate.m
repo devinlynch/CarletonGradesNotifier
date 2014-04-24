@@ -77,4 +77,10 @@
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 }
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification;
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newGrade" object: [notification.userInfo objectForKey:@"newGrade"]];
+}
+
 @end
