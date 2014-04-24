@@ -29,6 +29,11 @@
 		992CDF5A19077606000BAD82 /* Grade.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF5919077606000BAD82 /* Grade.m */; };
 		999C859C190808870088F6BE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 999C859B190808870088F6BE /* libsqlite3.dylib */; };
 		999C859F190808B20088F6BE /* PersistanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C859E190808B20088F6BE /* PersistanceManager.m */; };
+		999C85A319081FB20088F6BE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85A219081FB20088F6BE /* MBProgressHUD.m */; };
+		999C85A6190873EB0088F6BE /* TermGrades.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85A5190873EB0088F6BE /* TermGrades.m */; };
+		999C85A919087E0F0088F6BE /* GradesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85A819087E0F0088F6BE /* GradesViewController.m */; };
+		999C85AD190882E40088F6BE /* GradeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85AB190882E40088F6BE /* GradeTableViewCell.m */; };
+		999C85AE190882E40088F6BE /* GradeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 999C85AC190882E40088F6BE /* GradeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +81,15 @@
 		999C859B190808870088F6BE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		999C859D190808B20088F6BE /* PersistanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistanceManager.h; sourceTree = "<group>"; };
 		999C859E190808B20088F6BE /* PersistanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistanceManager.m; sourceTree = "<group>"; };
+		999C85A119081FB20088F6BE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = "../../Kings-N-Thing-Client/scaffold/src/Classes/MBProgressHUD.h"; sourceTree = "<group>"; };
+		999C85A219081FB20088F6BE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "../../Kings-N-Thing-Client/scaffold/src/Classes/MBProgressHUD.m"; sourceTree = "<group>"; };
+		999C85A4190873EB0088F6BE /* TermGrades.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermGrades.h; sourceTree = "<group>"; };
+		999C85A5190873EB0088F6BE /* TermGrades.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermGrades.m; sourceTree = "<group>"; };
+		999C85A719087E0F0088F6BE /* GradesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradesViewController.h; sourceTree = "<group>"; };
+		999C85A819087E0F0088F6BE /* GradesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradesViewController.m; sourceTree = "<group>"; };
+		999C85AA190882E40088F6BE /* GradeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeTableViewCell.h; sourceTree = "<group>"; };
+		999C85AB190882E40088F6BE /* GradeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeTableViewCell.m; sourceTree = "<group>"; };
+		999C85AC190882E40088F6BE /* GradeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GradeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +207,11 @@
 				992CDF1F190769AE000BAD82 /* Main.storyboard */,
 				992CDF22190769AE000BAD82 /* ViewController.h */,
 				992CDF23190769AE000BAD82 /* ViewController.m */,
+				999C85A719087E0F0088F6BE /* GradesViewController.h */,
+				999C85A819087E0F0088F6BE /* GradesViewController.m */,
+				999C85AA190882E40088F6BE /* GradeTableViewCell.h */,
+				999C85AB190882E40088F6BE /* GradeTableViewCell.m */,
+				999C85AC190882E40088F6BE /* GradeTableViewCell.xib */,
 			);
 			name = "Views and Controllers";
 			sourceTree = "<group>";
@@ -200,6 +219,8 @@
 		992CDF5D1907781E000BAD82 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				999C85A119081FB20088F6BE /* MBProgressHUD.h */,
+				999C85A219081FB20088F6BE /* MBProgressHUD.m */,
 				992CDF4C19076DEC000BAD82 /* Utils.h */,
 				992CDF4D19076DEC000BAD82 /* Utils.m */,
 				992CDF52190772E5000BAD82 /* KeychainItemWrapper.h */,
@@ -219,6 +240,8 @@
 				992CDF5919077606000BAD82 /* Grade.m */,
 				999C859D190808B20088F6BE /* PersistanceManager.h */,
 				999C859E190808B20088F6BE /* PersistanceManager.m */,
+				999C85A4190873EB0088F6BE /* TermGrades.h */,
+				999C85A5190873EB0088F6BE /* TermGrades.m */,
 			);
 			name = Fetcher;
 			sourceTree = "<group>";
@@ -307,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				992CDF26190769AE000BAD82 /* Images.xcassets in Resources */,
+				999C85AE190882E40088F6BE /* GradeTableViewCell.xib in Resources */,
 				992CDF18190769AE000BAD82 /* InfoPlist.strings in Resources */,
 				992CDF21190769AE000BAD82 /* Main.storyboard in Resources */,
 			);
@@ -331,12 +355,16 @@
 				992CDF1E190769AE000BAD82 /* AppDelegate.m in Sources */,
 				992CDF4B190769F4000BAD82 /* ServerAccess.m in Sources */,
 				992CDF5A19077606000BAD82 /* Grade.m in Sources */,
+				999C85A319081FB20088F6BE /* MBProgressHUD.m in Sources */,
 				992CDF57190774CD000BAD82 /* KeyValue.m in Sources */,
 				999C859F190808B20088F6BE /* PersistanceManager.m in Sources */,
 				992CDF4E19076DEC000BAD82 /* Utils.m in Sources */,
+				999C85A919087E0F0088F6BE /* GradesViewController.m in Sources */,
 				992CDF1A190769AE000BAD82 /* main.m in Sources */,
+				999C85A6190873EB0088F6BE /* TermGrades.m in Sources */,
 				992CDF5119077273000BAD82 /* GradesFetcher.m in Sources */,
 				992CDF54190772E5000BAD82 /* KeychainItemWrapper.m in Sources */,
+				999C85AD190882E40088F6BE /* GradeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

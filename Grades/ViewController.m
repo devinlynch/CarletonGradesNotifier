@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "GradesFetcher.h"
+#import "Grade.h"
+#import "Utils.h"
+#import "TermGrades.h"
 
 @interface ViewController ()
 
@@ -31,6 +34,10 @@
     if(password != nil) {
         pwdTxt.text = password;
     }
+    
+    if(username != nil && password != nil){
+        [self authenticate: username andPassword: password];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,8 +50,38 @@
     NSString *username = usernameTxt.text;
     NSString *password = pwdTxt.text;
     
+    [self authenticate:username andPassword:password];
+}
+
+-(void) authenticate: (NSString*) username andPassword: (NSString*) password{
+    [Utils showLoaderOnView:self.view animated:YES];
+    
+    void (^successBlock)(void)= ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [Utils removeLoaderOnView:self.view animated:YES];
+            [self performSegueWithIdentifier:@"loggedIn" sender:self];
+        });
+    };
+    
+    void (^errorBlock)(void)= ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [Utils removeLoaderOnView:self.view animated:YES];
+        });
+    };
+    
     [GradesFetcher updateUsername:username andPassword:password];
-    [GradesFetcher fetchGrades];
+    
+    [GradesFetcher authenticateWithSuccess:^(NSString* token, NSString* username) {
+        successBlock();
+    }andError:errorBlock];
+    
+    /*[GradesFetcher fetchGradesWithNewGrade:^(Grade* g){
+    } andNoNewGrade:^{
+    } allGradesBlock:^(TermGrades* grades){
+        successBlock(grades);
+    }andError:^{
+        errorBlock();
+    } forTerm:nil];*/
 }
 
 @end

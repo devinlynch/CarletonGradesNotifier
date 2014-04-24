@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GradesFetcher.h"
 #import "Grade.h"
+#import "TermGrades.h"
 
 @implementation AppDelegate
 
@@ -49,13 +50,14 @@
 
 -(void) application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
     [GradesFetcher fetchGradesWithNewGrade: ^(Grade *grade){
-        
         completionHandler(UIBackgroundFetchResultNewData);
     } andNoNewGrade: ^{
         completionHandler(UIBackgroundFetchResultNoData);
+    }allGradesBlock:^(TermGrades* grades){
+     
     } andError: ^{
         completionHandler(UIBackgroundFetchResultFailed);
-    }];
+    } forTerm:nil];
 }
 
 @end

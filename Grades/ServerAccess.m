@@ -19,7 +19,7 @@ typedef enum HttpRequestMethods {
 
     NSString *postBody = [self httpParamsFromDictionary:params];
     NSData *postData = [postBody dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%ld", [postData length]];
+    NSString *postLength = [NSString stringWithFormat:@"%d", (int)[postData length]];
 
     NSURL *url = [NSURL URLWithString:targetUrl];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -87,11 +87,14 @@ typedef enum HttpRequestMethods {
     [self asynchronousRequestOfType:POSTREQUEST toUrl:@"https://mobileapps.carleton.ca:8443/iPhone/login.jsp" withParams:params andErrorCall:error andSuccessCall:success];
 }
 
-+(void) getGradesWithUsername: (NSString*) username andToken: (NSString*) token withSuccess: (block_t) success andError: (block_t) error{
-    NSDictionary *params = @{
++(void) getGradesWithUsername: (NSString*) username andToken: (NSString*) token forTerm: (NSString*) termId withSuccess: (block_t) success andError: (block_t) error{
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{
                              @"userid": username,
                              @"key": token
-                             };
+                             }];
+    if(termId) {
+        [params setObject:termId forKey:@"term"];
+    }
     [self asynchronousRequestOfType:POSTREQUEST toUrl:@"https://mobileapps.carleton.ca:8443/iPhone/protected/getGrades" withParams:params andErrorCall:error andSuccessCall:success];
 }
 

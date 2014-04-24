@@ -11,14 +11,24 @@
 #import "ServerAccess.h"
 #import "Grade.h"
 #import "PersistanceManager.h"
+#import "TermGrades.h"
 
 @implementation GradesFetcher
 
-+(void) fetchGrades{
-    [self fetchGradesWithNewGrade:nil andNoNewGrade:nil andError:nil];
+static NSString *_cachedToken;
+static NSString *_cachedUsername;
++(void) setCachedToken: (NSString*) token{
+    _cachedToken = token;
+}
++(void) setCachedUsername: (NSString*) username{
+    _cachedUsername = username;
 }
 
-+(void)fetchGradesWithNewGrade: (void (^)(Grade *grade)) newGradesBlock andNoNewGrade: (void (^)(void)) noNewGradeBlock andError: (void (^)(void)) errorBlock{
++(void) fetchGradesForTerm: (NSString*) termId withGotGradesSuccess: (void (^)(TermGrades *grades)) success andErrorBlock: (void (^)(void)) errorBlock{
+    [self fetchGradesWithNewGrade:nil andNoNewGrade:nil allGradesBlock:success andError:errorBlock forTerm:termId];
+}
+
++(void) authenticateWithSuccess: (void (^)(NSString *token, NSString* username)) successBlock andError: (void (^)(void)) errorBlock{
     KeyValue *kv = [self getStoredUsernameAndPassword];
     NSString *username = kv.key;
     NSString *password = kv.value;
@@ -26,28 +36,46 @@
     if(username == nil || password == nil)
         return;
     
+    block_t error = ^(NSData* data) {
+        errorBlock();
+    };
     
-    [self authenticateThenGetGradesWithUsername:username andPassword:password withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock andError:errorBlock];
-}
-
-+(void) authenticateThenGetGradesWithUsername: (NSString*) username andPassword: (NSString*) password withNewGrades: (void (^)(Grade *grade)) newGradesBlock andNoNewGrade: (void (^)(void)) noNewGradeBlock andError: (void (^)(void)) errorBlock{
-    block_t error = nil;
     block_t success = ^(NSData* data) {
         NSString *response = [Utils stringFromData:data];
         
-        NSRange range1 = [response rangeOfString:@"?token="];
-        NSString *secondHalf = [response substringWithRange:NSMakeRange(range1.location+range1.length, 100)];
-        NSRange range2 = [secondHalf rangeOfString:@"\""];
-        NSString *token = [response substringWithRange:NSMakeRange(range1.location+range1.length, range2.location)];
+        NSString *token;
+        @try {
+            NSRange range1 = [response rangeOfString:@"?token="];
+            NSString *secondHalf = [response substringWithRange:NSMakeRange(range1.location+range1.length, 100)];
+            NSRange range2 = [secondHalf rangeOfString:@"\""];
+            token = [response substringWithRange:NSMakeRange(range1.location+range1.length, range2.location)];
+        }
+        @catch (NSException *exception) {
+            errorBlock();
+            return;
+        }
         
-        [self getGradesWithUsername:username andToken:token withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock andError:errorBlock];
+        [self setCachedToken:token];
+        [self setCachedUsername:username];
         
+        successBlock(token, username);
     };
     
     [ServerAccess authenticateWithUsername:username andPassword:password withSuccess:success andError:error];
 }
 
-+(void) getGradesWithUsername: (NSString*) username andToken: (NSString*) token withNewGrades: (void (^)(Grade *grade)) newGradesBlock andNoNewGrade: (void (^)(void)) noNewGradeBlock andError: (void (^)(void)) errorBlock{
++(void)fetchGradesWithNewGrade: (void (^)(Grade *grade)) newGradesBlock andNoNewGrade: (void (^)(void)) noNewGradeBlock allGradesBlock: (void (^)(TermGrades *grades)) allGradesBlock andError: (void (^)(void)) errorBlock forTerm: (NSString*) termId{
+    
+    if(_cachedToken != nil && _cachedUsername != nil) {
+        [self getGradesWithUsername:_cachedUsername andToken:_cachedToken forTerm:termId withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock allGradesBlock:allGradesBlock andError:errorBlock];
+    } else{
+        [self authenticateWithSuccess:^(NSString* token, NSString* username) {
+            [self getGradesWithUsername:username andToken:token forTerm:termId withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock allGradesBlock:allGradesBlock andError:errorBlock];
+        }andError:errorBlock];
+    }
+}
+
++(void) getGradesWithUsername: (NSString*) username andToken: (NSString*) token forTerm: (NSString*) termId withNewGrades: (void (^)(Grade *grade)) newGradesBlock andNoNewGrade: (void (^)(void)) noNewGradeBlock allGradesBlock: (void (^)(TermGrades *grades)) allGradesBlock andError: (void (^)(void)) errorBlock{
     block_t success = ^(NSData* data) {
         NSDictionary *response;
         @try {
@@ -55,41 +83,61 @@
         }
         @catch (NSException *exception) {
             NSLog(@"%@", exception);
+            errorBlock();
+            return;
         }
         
         NSLog(@"%@", response);
-        [self parseGradesAndNotify: response withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock andError:errorBlock];
+        [self parseGradesAndNotify: response withNewGrades:newGradesBlock andNoNewGrade:noNewGradeBlock allGradesBlock:allGradesBlock andError:errorBlock];
     };
     
-    [ServerAccess getGradesWithUsername:username andToken:token withSuccess:success andError:nil];
+    [ServerAccess getGradesWithUsername:username andToken:token forTerm:termId withSuccess:success andError:^(NSData* data) {
+        errorBlock();
+    }];
 }
 
-+(void) parseGradesAndNotify: (NSDictionary*) json withNewGrades: (void (^)(Grade *grade)) newGradesBlock andNoNewGrade: (void (^)(void)) noNewGradeBlock andError: (void (^)(void)) errorBlock{
++(void) parseGradesAndNotify: (NSDictionary*) json withNewGrades: (void (^)(Grade *grade)) newGradesBlock andNoNewGrade: (void (^)(void)) noNewGradeBlock allGradesBlock: (void (^)(TermGrades *grades)) allGradesBlock andError: (void (^)(void)) errorBlock{
     NSArray* gradesArr = [json objectForKey:@"grades"];
     if(gradesArr == nil)
         return;
     
-    NSString *termId = [[json objectForKey:@"term"] objectForKey:@"id"];
+    NSDictionary *termDic = [json objectForKey:@"term"];
+    NSString *termId = [termDic objectForKey:@"id"];
+    NSString *termName = [termDic objectForKey:@"name"];
+    NSString *nextTermId = [json objectForKey:@"nextTermId"];
+    NSString *prevTermId = [json objectForKey:@"previousTermId"];
     
-    NSMutableArray *grades  = [[NSMutableArray alloc] init];
+    TermGrades *termGrades = [[TermGrades alloc] init];
+    [termGrades setTermId:termId];
+    [termGrades setTermName:termName];
+    
+    if(nextTermId && [nextTermId isKindOfClass:[NSString class]] && [nextTermId rangeOfString:@"null"].location == NSNotFound) {
+        [termGrades setNextTermId:nextTermId];
+    }
+    if(prevTermId && [prevTermId isKindOfClass:[NSString class]] && [prevTermId rangeOfString:@"null"].location == NSNotFound) {
+        [termGrades setPreviousTermId:prevTermId];
+    }
+    
     for(NSDictionary * gradeDic in gradesArr) {
         Grade *grade = [[Grade alloc] init];
         grade.grade = [gradeDic objectForKey:@"grade"];
         grade.courseDescription = [gradeDic objectForKey:@"courseDescription"];
         grade.courseTitle = [gradeDic objectForKey:@"courseTitle"];
         grade.termId = termId;
-        [grades addObject:grade];
+        [termGrades addGrade:grade];
     }
-    NSLog(@"%@", grades);
+    NSLog(@"%@", termGrades.grades);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
+        
         Grade *newGrade;
-        for(Grade *g in grades) {
+        for(Grade *g in termGrades.grades) {
             BOOL didGetANewGrade = [self storeAndNotifyIfGradeAdded:g];
             if(didGetANewGrade) {
                 newGrade = g;
             }
+            
         }
         
         if(newGradesBlock && newGrade) {
@@ -99,7 +147,7 @@
             noNewGradeBlock();
         }
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"gotGrades" object:grades];
+        allGradesBlock(termGrades);
     });
 }
 

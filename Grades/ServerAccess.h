@@ -12,6 +12,6 @@ typedef void (^block_t)(NSData* response);
 @interface ServerAccess : NSObject
 
 +(void) authenticateWithUsername: (NSString*) username andPassword: (NSString*) password withSuccess: (block_t) success andError: (block_t) error;
-+(void) getGradesWithUsername: (NSString*) username andToken: (NSString*) token withSuccess: (block_t) success andError: (block_t) error;
++(void) getGradesWithUsername: (NSString*) username andToken: (NSString*) token forTerm: (NSString*) termId withSuccess: (block_t) success andError: (block_t) error;
 
 @end
