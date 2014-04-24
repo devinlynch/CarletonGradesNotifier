@@ -98,7 +98,45 @@
 }
 
 -(void) updateUIForCurrentTerm{
+    
+    float gpa = 0;
+    
+    int numGrades = termGrades.grades.count;
+    
+    for (Grade *grade in termGrades.grades) {
+        if ([grade.grade isEqualToString:@"A+"]) {
+            gpa += 12;
+        } else if ([grade.grade isEqualToString:@"A"]) {
+            gpa += 11;
+        } else if ([grade.grade isEqualToString:@"A-"]) {
+            gpa += 10;
+        } else if ([grade.grade isEqualToString:@"B+"]) {
+            gpa += 9;
+        } else if ([grade.grade isEqualToString:@"B"]) {
+            gpa += 8;
+        } else if ([grade.grade isEqualToString:@"B-"]) {
+            gpa += 7;
+        } else if ([grade.grade isEqualToString:@"C+"]) {
+            gpa += 6;
+        } else if ([grade.grade isEqualToString:@"C"]) {
+            gpa += 5;
+        } else if ([grade.grade isEqualToString:@"C-"]) {
+            gpa += 4;
+        } else if ([grade.grade isEqualToString:@"D+"]) {
+            gpa += 3;
+        } else if ([grade.grade isEqualToString:@"D"]) {
+            gpa += 2;
+        } else if ([grade.grade isEqualToString:@"D-"]) {
+            gpa += 1;
+        } else if ([grade.grade isEqualToString:@"CTN"]) {
+            numGrades--;
+        }
+    }
+
+    gpa = gpa/numGrades;
+    
     self.termNameLabel.text = termGrades.termName;
+    self.gpaLabel.text = [NSString stringWithFormat:@"CGPA: %.1f",gpa];
     
     self.nextTermButton.enabled = termGrades.nextTermId != nil;
     self.previousTermButton.enabled = termGrades.previousTermId != nil;

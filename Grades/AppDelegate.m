@@ -58,7 +58,7 @@
     } andError: ^{
         completionHandler(UIBackgroundFetchResultFailed);
     } forTerm:nil];
-    [self sendTestPush];
+   // [self sendTestPush];
 }
 
 -(void) sendTestPush{
