@@ -34,6 +34,12 @@
 		999C85A919087E0F0088F6BE /* GradesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85A819087E0F0088F6BE /* GradesViewController.m */; };
 		999C85AD190882E40088F6BE /* GradeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85AB190882E40088F6BE /* GradeTableViewCell.m */; };
 		999C85AE190882E40088F6BE /* GradeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 999C85AC190882E40088F6BE /* GradeTableViewCell.xib */; };
+		999C85B01908B2A70088F6BE /* carletonlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 999C85AF1908B2A70088F6BE /* carletonlogo.png */; };
+		999C85B51908B30C0088F6BE /* login_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 999C85B11908B30C0088F6BE /* login_sel.png */; };
+		999C85B61908B30C0088F6BE /* login_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 999C85B21908B30C0088F6BE /* login_sel@2x.png */; };
+		999C85B71908B30C0088F6BE /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 999C85B31908B30C0088F6BE /* login.png */; };
+		999C85B81908B30C0088F6BE /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 999C85B41908B30C0088F6BE /* login@2x.png */; };
+		999C85BA1908B3B10088F6BE /* carleton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 999C85B91908B3B10088F6BE /* carleton@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +96,12 @@
 		999C85AA190882E40088F6BE /* GradeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeTableViewCell.h; sourceTree = "<group>"; };
 		999C85AB190882E40088F6BE /* GradeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeTableViewCell.m; sourceTree = "<group>"; };
 		999C85AC190882E40088F6BE /* GradeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GradeTableViewCell.xib; sourceTree = "<group>"; };
+		999C85AF1908B2A70088F6BE /* carletonlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carletonlogo.png; sourceTree = "<group>"; };
+		999C85B11908B30C0088F6BE /* login_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_sel.png; sourceTree = "<group>"; };
+		999C85B21908B30C0088F6BE /* login_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_sel@2x.png"; sourceTree = "<group>"; };
+		999C85B31908B30C0088F6BE /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		999C85B41908B30C0088F6BE /* login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@2x.png"; sourceTree = "<group>"; };
+		999C85B91908B3B10088F6BE /* carleton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carleton@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +163,7 @@
 		992CDF13190769AE000BAD82 /* Grades */ = {
 			isa = PBXGroup;
 			children = (
+				999C85BB1908B44E0088F6BE /* Images */,
 				992CDF5E1907782D000BAD82 /* Fetcher */,
 				992CDF5D1907781E000BAD82 /* Utils */,
 				992CDF5B190777F6000BAD82 /* Views and Controllers */,
@@ -246,6 +259,19 @@
 			name = Fetcher;
 			sourceTree = "<group>";
 		};
+		999C85BB1908B44E0088F6BE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				999C85B91908B3B10088F6BE /* carleton@2x.png */,
+				999C85B11908B30C0088F6BE /* login_sel.png */,
+				999C85B21908B30C0088F6BE /* login_sel@2x.png */,
+				999C85B31908B30C0088F6BE /* login.png */,
+				999C85B41908B30C0088F6BE /* login@2x.png */,
+				999C85AF1908B2A70088F6BE /* carletonlogo.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -331,8 +357,14 @@
 			files = (
 				992CDF26190769AE000BAD82 /* Images.xcassets in Resources */,
 				999C85AE190882E40088F6BE /* GradeTableViewCell.xib in Resources */,
+				999C85BA1908B3B10088F6BE /* carleton@2x.png in Resources */,
+				999C85B51908B30C0088F6BE /* login_sel.png in Resources */,
+				999C85B61908B30C0088F6BE /* login_sel@2x.png in Resources */,
 				992CDF18190769AE000BAD82 /* InfoPlist.strings in Resources */,
+				999C85B71908B30C0088F6BE /* login.png in Resources */,
 				992CDF21190769AE000BAD82 /* Main.storyboard in Resources */,
+				999C85B01908B2A70088F6BE /* carletonlogo.png in Resources */,
+				999C85B81908B30C0088F6BE /* login@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +519,6 @@
 		992CDF3D190769AE000BAD82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Grades/Grades-Prefix.pch";
@@ -500,7 +531,6 @@
 		992CDF3E190769AE000BAD82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Grades/Grades-Prefix.pch";

@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Carleton Grades-->
+        <!--View Controller - CU Grades-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -16,32 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL9-LO-Bgt">
-                                <rect key="frame" x="145" y="177" width="38" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL9-LO-Bgt">
+                                <rect key="frame" x="60" y="217" width="200" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" image="login.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="login_sel.png"/>
+                                <state key="highlighted" image="login_sel.png"/>
                                 <connections>
                                     <action selector="didPressGo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jWg-ms-al7"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rlP-4O-6iv">
-                                <rect key="frame" x="66" y="101" width="189" height="30"/>
+                                <rect key="frame" x="60" y="141" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L0a-KT-ffE">
-                                <rect key="frame" x="66" y="139" width="189" height="30"/>
+                                <rect key="frame" x="60" y="179" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carleton.png" translatesAutoresizingMaskIntoConstraints="NO" id="A66-rn-ybb">
+                                <rect key="frame" x="40" y="76" width="240" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Carleton Grades" id="dS4-hE-oJk"/>
+                    <navigationItem key="navigationItem" title="CU Grades" id="dS4-hE-oJk"/>
                     <connections>
                         <outlet property="pwdTxt" destination="L0a-KT-ffE" id="xfk-Me-4W0"/>
                         <outlet property="usernameTxt" destination="rlP-4O-6iv" id="Q3T-Hc-U4v"/>
@@ -52,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="146" y="42"/>
         </scene>
-        <!--Grades View Controller - Carleton Grades-->
+        <!--Grades View Controller - CU Grades-->
         <scene sceneID="PS7-7W-cZX">
             <objects>
                 <viewController id="qWX-8J-upD" customClass="GradesViewController" sceneMemberID="viewController">
@@ -101,7 +107,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Carleton Grades" id="gUP-eN-a7W">
+                    <navigationItem key="navigationItem" title="CU Grades" id="gUP-eN-a7W">
                         <barButtonItem key="backBarButtonItem" title="Logout" id="lCE-px-WGg"/>
                     </navigationItem>
                     <connections>
@@ -131,6 +137,11 @@
             <point key="canvasLocation" x="-379" y="-18"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="carleton.png" width="228" height="62"/>
+        <image name="login.png" width="200" height="40"/>
+        <image name="login_sel.png" width="200" height="40"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

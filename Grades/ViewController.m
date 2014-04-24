@@ -66,6 +66,7 @@
     void (^errorBlock)(void)= ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [Utils removeLoaderOnView:self.view animated:YES];
+            [Utils showAlertWithTitle:@"Whoops" message:@"Your username and password did not match, or there is an error with the server." delegate:nil cancelButtonTitle:@"Ok"];
         });
     };
     
