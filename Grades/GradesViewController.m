@@ -34,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadGradesForTerm:nil];
+    [self loadGradesForTerm:nil shouldShowAnimation:YES];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -46,19 +46,24 @@
 }
 
 -(void) refresh:(id)sender{
-    [refreshControl endRefreshing];
     if(termGrades != nil)
-        [self loadGradesForTerm:termGrades.termId];
+        [self loadGradesForTerm:termGrades.termId shouldShowAnimation:NO];
     else
-        [self loadGradesForTerm:nil];
+        [self loadGradesForTerm:nil shouldShowAnimation:NO];
 }
 
--(void) loadGradesForTerm: (NSString*) termId {
-    [Utils showLoaderOnView:self.view animated:YES];
+-(void) loadGradesForTerm: (NSString*) termId shouldShowAnimation: (BOOL) shouldShowAnimation {
+    if(shouldShowAnimation)
+        [Utils showLoaderOnView:self.view animated:YES];
     
     void (^successBlock)(TermGrades* grades)= ^(TermGrades* grades){
         dispatch_async(dispatch_get_main_queue(), ^{
-            [Utils removeLoaderOnView:self.view animated:YES];
+            
+            if(shouldShowAnimation)
+                [Utils removeLoaderOnView:self.view animated:YES];
+            
+            if([refreshControl isRefreshing])
+                [refreshControl endRefreshing];
             
             [self updateTerm: grades];
         });
@@ -66,7 +71,10 @@
     
     void (^errorBlock)(void)= ^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            [Utils removeLoaderOnView:self.view animated:YES];
+            if(shouldShowAnimation)
+                [Utils removeLoaderOnView:self.view animated:YES];
+            if([refreshControl isRefreshing])
+                [refreshControl endRefreshing];
             [self showErrorLoadingGrades];
         });
     };
@@ -106,13 +114,13 @@
 
 -(IBAction)didPressNextTerm:(id)sender{
     if(termGrades.nextTermId != nil) {
-        [self loadGradesForTerm:termGrades.nextTermId];
+        [self loadGradesForTerm:termGrades.nextTermId shouldShowAnimation:YES];
     }
 }
 
 -(IBAction)didPressPreviousTerm:(id)sender{
     if(termGrades.previousTermId != nil) {
-        [self loadGradesForTerm:termGrades.previousTermId];
+        [self loadGradesForTerm:termGrades.previousTermId shouldShowAnimation:YES];
     }
 }
 
