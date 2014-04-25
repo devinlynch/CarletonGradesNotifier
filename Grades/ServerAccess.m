@@ -28,9 +28,8 @@ typedef enum HttpRequestMethods {
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setHTTPBody:postData];
     [request setTimeoutInterval:20];
-    //TODO: handle timeout
-    NSOperationQueue *queue =[[NSOperationQueue alloc] init];
     
+    NSOperationQueue *queue =[[NSOperationQueue alloc] init];
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:queue
                            completionHandler:
@@ -78,13 +77,20 @@ typedef enum HttpRequestMethods {
     }
 }
 
++(NSString*) RESTServerUrl {
+    if([[Config configForKey:@"useMockRESTAPI"] boolValue]) {
+        return [Config configForKey:@"mockAPIUrl"];
+    } else {
+        return [Config configForKey:@"restAPIUrl"];
+    }
+}
 
 +(void) authenticateWithUsername: (NSString*) username andPassword: (NSString*) password withSuccess: (block_t) success andError: (block_t) error{
     NSDictionary *params = @{
                              @"userid": username,
                              @"userpwd": password
                              };
-    [self asynchronousRequestOfType:POSTREQUEST toUrl:@"https://mobileapps.carleton.ca:8443/iPhone/login.jsp" withParams:params andErrorCall:error andSuccessCall:success];
+    [self asynchronousRequestOfType:POSTREQUEST toUrl:[NSString stringWithFormat:@"%@/login.jsp", [self RESTServerUrl]] withParams:params andErrorCall:error andSuccessCall:success];
 }
 
 +(void) getGradesWithUsername: (NSString*) username andToken: (NSString*) token forTerm: (NSString*) termId withSuccess: (block_t) success andError: (block_t) error{
@@ -95,7 +101,7 @@ typedef enum HttpRequestMethods {
     if(termId) {
         [params setObject:termId forKey:@"term"];
     }
-    [self asynchronousRequestOfType:POSTREQUEST toUrl:@"https://mobileapps.carleton.ca:8443/iPhone/protected/getGrades" withParams:params andErrorCall:error andSuccessCall:success];
+    [self asynchronousRequestOfType:POSTREQUEST toUrl:[NSString stringWithFormat:@"%@/protected/getGrades", [self RESTServerUrl]] withParams:params andErrorCall:error andSuccessCall:success];
 }
 
 @end

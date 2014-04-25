@@ -75,14 +75,6 @@
     [GradesFetcher authenticateWithSuccess:^(NSString* token, NSString* username) {
         successBlock();
     }andError:errorBlock];
-    
-    /*[GradesFetcher fetchGradesWithNewGrade:^(Grade* g){
-    } andNoNewGrade:^{
-    } allGradesBlock:^(TermGrades* grades){
-        successBlock(grades);
-    }andError:^{
-        errorBlock();
-    } forTerm:nil];*/
 }
 
 @end

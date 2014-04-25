@@ -40,6 +40,8 @@
 		999C85B71908B30C0088F6BE /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 999C85B31908B30C0088F6BE /* login.png */; };
 		999C85B81908B30C0088F6BE /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 999C85B41908B30C0088F6BE /* login@2x.png */; };
 		999C85BA1908B3B10088F6BE /* carleton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 999C85B91908B3B10088F6BE /* carleton@2x.png */; };
+		999C85BE1909D0910088F6BE /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 999C85BD1909D0910088F6BE /* config.plist */; };
+		999C85C11909D1200088F6BE /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85C01909D1200088F6BE /* Config.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,9 @@
 		999C85B31908B30C0088F6BE /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		999C85B41908B30C0088F6BE /* login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@2x.png"; sourceTree = "<group>"; };
 		999C85B91908B3B10088F6BE /* carleton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carleton@2x.png"; sourceTree = "<group>"; };
+		999C85BD1909D0910088F6BE /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		999C85BF1909D1200088F6BE /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		999C85C01909D1200088F6BE /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +175,9 @@
 				992CDF44190769D1000BAD82 /* Server */,
 				992CDF25190769AE000BAD82 /* Images.xcassets */,
 				992CDF14190769AE000BAD82 /* Supporting Files */,
+				999C85BD1909D0910088F6BE /* config.plist */,
+				999C85BF1909D1200088F6BE /* Config.h */,
+				999C85C01909D1200088F6BE /* Config.m */,
 			);
 			path = Grades;
 			sourceTree = "<group>";
@@ -358,6 +366,7 @@
 				992CDF26190769AE000BAD82 /* Images.xcassets in Resources */,
 				999C85AE190882E40088F6BE /* GradeTableViewCell.xib in Resources */,
 				999C85BA1908B3B10088F6BE /* carleton@2x.png in Resources */,
+				999C85BE1909D0910088F6BE /* config.plist in Resources */,
 				999C85B51908B30C0088F6BE /* login_sel.png in Resources */,
 				999C85B61908B30C0088F6BE /* login_sel@2x.png in Resources */,
 				992CDF18190769AE000BAD82 /* InfoPlist.strings in Resources */,
@@ -393,6 +402,7 @@
 				992CDF4E19076DEC000BAD82 /* Utils.m in Sources */,
 				999C85A919087E0F0088F6BE /* GradesViewController.m in Sources */,
 				992CDF1A190769AE000BAD82 /* main.m in Sources */,
+				999C85C11909D1200088F6BE /* Config.m in Sources */,
 				999C85A6190873EB0088F6BE /* TermGrades.m in Sources */,
 				992CDF5119077273000BAD82 /* GradesFetcher.m in Sources */,
 				992CDF54190772E5000BAD82 /* KeychainItemWrapper.m in Sources */,
