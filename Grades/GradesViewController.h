@@ -11,6 +11,7 @@
 @interface GradesViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property IBOutlet UILabel* termNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *gpaLabel;
 @property IBOutlet UITableView* tableView;
 @property IBOutlet UIButton* nextTermButton;
 @property IBOutlet UIButton* previousTermButton;

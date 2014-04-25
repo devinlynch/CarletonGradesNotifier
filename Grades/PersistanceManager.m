@@ -16,8 +16,7 @@
     
     NSString *docsDir;
     NSArray *dirPaths;
-    dirPaths = NSSearchPathForDirectoriesInDomains(
-                                                   NSDocumentDirectory, NSUserDomainMask, YES);
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = dirPaths[0];
     databasePath = [[NSString alloc]
      initWithString: [docsDir stringByAppendingPathComponent:
@@ -72,10 +71,10 @@
         
         if (sqlite3_step(statement) == SQLITE_DONE)
         {
-            NSLog(@"Contact added");
+            NSLog(@"Grade added");
             
         } else {
-            NSLog(@"Failed to add contact");
+            NSLog(@"Failed to add grade");
         }
         sqlite3_finalize(statement);
         sqlite3_close(database);
