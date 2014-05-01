@@ -12,6 +12,7 @@
 #import "Grade.h"
 #import "PersistanceManager.h"
 #import "TermGrades.h"
+#import "Cache.h"
 
 @implementation GradesFetcher
 
@@ -81,6 +82,14 @@ static NSString *_cachedUsername;
 }
 
 +(void) getGradesWithUsername: (NSString*) username andToken: (NSString*) token forTerm: (NSString*) termId withNewGrades: (void (^)(Grade *grade)) newGradesBlock andNoNewGrade: (void (^)(void)) noNewGradeBlock allGradesBlock: (void (^)(TermGrades *grades)) allGradesBlock andError: (void (^)(void)) errorBlock{
+    
+    TermGrades *cachedGrades = [Cache get:termId != nil ? termId : @"now" fromCacheNamed:@"termGrades"];
+    if(cachedGrades != nil) {
+        noNewGradeBlock();
+        allGradesBlock(cachedGrades);
+        return;
+    }
+    
     block_t success = ^(NSData* data) {
         NSDictionary *response;
         @try {
@@ -138,8 +147,6 @@ static NSString *_cachedUsername;
     NSLog(@"%@", termGrades.grades);
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        
-        
         Grade *newGrade;
         for(Grade *g in termGrades.grades) {
             BOOL didGetANewGrade = [self storeAndNotifyIfGradeAdded:g];
@@ -148,6 +155,9 @@ static NSString *_cachedUsername;
             }
             
         }
+        
+        NSDate *expiry = [NSDate dateWithTimeIntervalSinceNow:20];
+        [Cache addToCacheNamed:@"termGrades" withKey:termId != nil ? termId : @"now" withObject:termGrades andExpiry:expiry];
         
         if(newGradesBlock && newGrade) {
             newGradesBlock(newGrade);

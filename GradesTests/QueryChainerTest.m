@@ -7,11 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "QueryChainer.h"
+#import "ObjectiveAsync.h"
 
 @interface QueryChainerTest : XCTestCase
 {
-    QueryChainer *chainer;
+    ObjectiveAsync *chainer;
 }
 @end
 
@@ -32,19 +32,21 @@
 
 - (void)testExample
 {
-    chainer = [[QueryChainer alloc] init];
+    chainer = [[ObjectiveAsync alloc] init];
     
-    [chainer addBlockToChain:^(queryCallback callback) {
+    [chainer addStepWithBlock:^(objectiveAsyncStepCallback callback) {
         callback(nil, @"1");
     } forName:@"first" withCallback:nil];
     
-    [chainer addBlockToChain:^(queryCallback callback) {
+    [chainer addStepWithBlock:^(objectiveAsyncStepCallback callback) {
         callback(nil, @"2");
     } forName:@"second" withCallback:nil];
     
-    [chainer executeAsync:^(NSError* error, NSDictionary *dic) {
+    [chainer executeSeries:^(NSError* error, NSDictionary *dic) {
         NSLog(@"%@", dic);
     }];
+    
+    sleep(3);
 }
 
 @end
