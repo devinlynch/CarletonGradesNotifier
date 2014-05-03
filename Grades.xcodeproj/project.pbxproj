@@ -27,6 +27,7 @@
 		992CDF54190772E5000BAD82 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF53190772E5000BAD82 /* KeychainItemWrapper.m */; };
 		992CDF57190774CD000BAD82 /* KeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF56190774CD000BAD82 /* KeyValue.m */; };
 		992CDF5A19077606000BAD82 /* Grade.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF5919077606000BAD82 /* Grade.m */; };
+		993D9FA419146BE90041DF16 /* Objective-Async in Resources */ = {isa = PBXBuildFile; fileRef = 993D9FA319146BE90041DF16 /* Objective-Async */; };
 		999C859C190808870088F6BE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 999C859B190808870088F6BE /* libsqlite3.dylib */; };
 		999C859F190808B20088F6BE /* PersistanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C859E190808B20088F6BE /* PersistanceManager.m */; };
 		999C85A319081FB20088F6BE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85A219081FB20088F6BE /* MBProgressHUD.m */; };
@@ -42,11 +43,6 @@
 		999C85BA1908B3B10088F6BE /* carleton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 999C85B91908B3B10088F6BE /* carleton@2x.png */; };
 		999C85BE1909D0910088F6BE /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 999C85BD1909D0910088F6BE /* config.plist */; };
 		999C85C11909D1200088F6BE /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85C01909D1200088F6BE /* Config.m */; };
-		999C85C4190A11020088F6BE /* ObjectiveAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85C3190A11020088F6BE /* ObjectiveAsync.m */; };
-		999C85C9190A17F00088F6BE /* ObjectiveAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85C3190A11020088F6BE /* ObjectiveAsync.m */; };
-		999C85CB190A18230088F6BE /* QueryChainerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85CA190A18230088F6BE /* QueryChainerTest.m */; };
-		999C85CE190A18CB0088F6BE /* ObjectiveAsyncStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85CD190A18CB0088F6BE /* ObjectiveAsyncStep.m */; };
-		999C85CF190A18D10088F6BE /* ObjectiveAsyncStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85CD190A18CB0088F6BE /* ObjectiveAsyncStep.m */; };
 		99E825A0190D40320014239A /* Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E8259F190D40320014239A /* Cache.m */; };
 		99E825A3190D41320014239A /* CacheObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E825A2190D41320014239A /* CacheObject.m */; };
 /* End PBXBuildFile section */
@@ -93,6 +89,7 @@
 		992CDF56190774CD000BAD82 /* KeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValue.m; sourceTree = "<group>"; };
 		992CDF5819077606000BAD82 /* Grade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grade.h; sourceTree = "<group>"; };
 		992CDF5919077606000BAD82 /* Grade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grade.m; sourceTree = "<group>"; };
+		993D9FA319146BE90041DF16 /* Objective-Async */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Objective-Async"; sourceTree = "<group>"; };
 		999C859B190808870088F6BE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		999C859D190808B20088F6BE /* PersistanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistanceManager.h; sourceTree = "<group>"; };
 		999C859E190808B20088F6BE /* PersistanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistanceManager.m; sourceTree = "<group>"; };
@@ -114,11 +111,6 @@
 		999C85BD1909D0910088F6BE /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		999C85BF1909D1200088F6BE /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		999C85C01909D1200088F6BE /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
-		999C85C2190A11020088F6BE /* ObjectiveAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveAsync.h; sourceTree = "<group>"; };
-		999C85C3190A11020088F6BE /* ObjectiveAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveAsync.m; sourceTree = "<group>"; };
-		999C85CA190A18230088F6BE /* QueryChainerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryChainerTest.m; sourceTree = "<group>"; };
-		999C85CC190A18CB0088F6BE /* ObjectiveAsyncStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveAsyncStep.h; sourceTree = "<group>"; };
-		999C85CD190A18CB0088F6BE /* ObjectiveAsyncStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveAsyncStep.m; sourceTree = "<group>"; };
 		99E8259E190D40320014239A /* Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cache.h; sourceTree = "<group>"; };
 		99E8259F190D40320014239A /* Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cache.m; sourceTree = "<group>"; };
 		99E825A1190D41320014239A /* CacheObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheObject.h; sourceTree = "<group>"; };
@@ -184,6 +176,7 @@
 		992CDF13190769AE000BAD82 /* Grades */ = {
 			isa = PBXGroup;
 			children = (
+				993D9FA319146BE90041DF16 /* Objective-Async */,
 				999C85BB1908B44E0088F6BE /* Images */,
 				992CDF5E1907782D000BAD82 /* Fetcher */,
 				992CDF5D1907781E000BAD82 /* Utils */,
@@ -214,7 +207,6 @@
 			children = (
 				992CDF38190769AE000BAD82 /* GradesTests.m */,
 				992CDF33190769AE000BAD82 /* Supporting Files */,
-				999C85CA190A18230088F6BE /* QueryChainerTest.m */,
 			);
 			path = GradesTests;
 			sourceTree = "<group>";
@@ -265,10 +257,6 @@
 				992CDF53190772E5000BAD82 /* KeychainItemWrapper.m */,
 				992CDF55190774CD000BAD82 /* KeyValue.h */,
 				992CDF56190774CD000BAD82 /* KeyValue.m */,
-				999C85C2190A11020088F6BE /* ObjectiveAsync.h */,
-				999C85C3190A11020088F6BE /* ObjectiveAsync.m */,
-				999C85CC190A18CB0088F6BE /* ObjectiveAsyncStep.h */,
-				999C85CD190A18CB0088F6BE /* ObjectiveAsyncStep.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -397,6 +385,7 @@
 				992CDF18190769AE000BAD82 /* InfoPlist.strings in Resources */,
 				999C85B71908B30C0088F6BE /* login.png in Resources */,
 				992CDF21190769AE000BAD82 /* Main.storyboard in Resources */,
+				993D9FA419146BE90041DF16 /* Objective-Async in Resources */,
 				999C85B01908B2A70088F6BE /* carletonlogo.png in Resources */,
 				999C85B81908B30C0088F6BE /* login@2x.png in Resources */,
 			);
@@ -428,9 +417,7 @@
 				999C859F190808B20088F6BE /* PersistanceManager.m in Sources */,
 				992CDF4E19076DEC000BAD82 /* Utils.m in Sources */,
 				999C85A919087E0F0088F6BE /* GradesViewController.m in Sources */,
-				999C85C4190A11020088F6BE /* ObjectiveAsync.m in Sources */,
 				992CDF1A190769AE000BAD82 /* main.m in Sources */,
-				999C85CE190A18CB0088F6BE /* ObjectiveAsyncStep.m in Sources */,
 				999C85C11909D1200088F6BE /* Config.m in Sources */,
 				999C85A6190873EB0088F6BE /* TermGrades.m in Sources */,
 				992CDF5119077273000BAD82 /* GradesFetcher.m in Sources */,
@@ -443,10 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				999C85CF190A18D10088F6BE /* ObjectiveAsyncStep.m in Sources */,
 				992CDF39190769AE000BAD82 /* GradesTests.m in Sources */,
-				999C85CB190A18230088F6BE /* QueryChainerTest.m in Sources */,
-				999C85C9190A17F00088F6BE /* ObjectiveAsync.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
