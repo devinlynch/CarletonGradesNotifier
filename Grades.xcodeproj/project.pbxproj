@@ -27,7 +27,8 @@
 		992CDF54190772E5000BAD82 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF53190772E5000BAD82 /* KeychainItemWrapper.m */; };
 		992CDF57190774CD000BAD82 /* KeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF56190774CD000BAD82 /* KeyValue.m */; };
 		992CDF5A19077606000BAD82 /* Grade.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CDF5919077606000BAD82 /* Grade.m */; };
-		993D9FA419146BE90041DF16 /* Objective-Async in Resources */ = {isa = PBXBuildFile; fileRef = 993D9FA319146BE90041DF16 /* Objective-Async */; };
+		993D9FBB19146C870041DF16 /* ObjectiveAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = 993D9FB719146C870041DF16 /* ObjectiveAsync.m */; };
+		993D9FBC19146C870041DF16 /* ObjectiveAsyncStep.m in Sources */ = {isa = PBXBuildFile; fileRef = 993D9FBA19146C870041DF16 /* ObjectiveAsyncStep.m */; };
 		999C859C190808870088F6BE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 999C859B190808870088F6BE /* libsqlite3.dylib */; };
 		999C859F190808B20088F6BE /* PersistanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C859E190808B20088F6BE /* PersistanceManager.m */; };
 		999C85A319081FB20088F6BE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 999C85A219081FB20088F6BE /* MBProgressHUD.m */; };
@@ -89,7 +90,10 @@
 		992CDF56190774CD000BAD82 /* KeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValue.m; sourceTree = "<group>"; };
 		992CDF5819077606000BAD82 /* Grade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grade.h; sourceTree = "<group>"; };
 		992CDF5919077606000BAD82 /* Grade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grade.m; sourceTree = "<group>"; };
-		993D9FA319146BE90041DF16 /* Objective-Async */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Objective-Async"; sourceTree = "<group>"; };
+		993D9FB619146C870041DF16 /* ObjectiveAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveAsync.h; sourceTree = "<group>"; };
+		993D9FB719146C870041DF16 /* ObjectiveAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveAsync.m; sourceTree = "<group>"; };
+		993D9FB919146C870041DF16 /* ObjectiveAsyncStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveAsyncStep.h; sourceTree = "<group>"; };
+		993D9FBA19146C870041DF16 /* ObjectiveAsyncStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveAsyncStep.m; sourceTree = "<group>"; };
 		999C859B190808870088F6BE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		999C859D190808B20088F6BE /* PersistanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistanceManager.h; sourceTree = "<group>"; };
 		999C859E190808B20088F6BE /* PersistanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistanceManager.m; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 		992CDF0C190769AE000BAD82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				993D9FB519146C750041DF16 /* Objective-Async */,
 				999C859B190808870088F6BE /* libsqlite3.dylib */,
 				992CDF0D190769AE000BAD82 /* Foundation.framework */,
 				992CDF0F190769AE000BAD82 /* CoreGraphics.framework */,
@@ -176,7 +181,6 @@
 		992CDF13190769AE000BAD82 /* Grades */ = {
 			isa = PBXGroup;
 			children = (
-				993D9FA319146BE90041DF16 /* Objective-Async */,
 				999C85BB1908B44E0088F6BE /* Images */,
 				992CDF5E1907782D000BAD82 /* Fetcher */,
 				992CDF5D1907781E000BAD82 /* Utils */,
@@ -278,6 +282,26 @@
 				99E825A2190D41320014239A /* CacheObject.m */,
 			);
 			name = Fetcher;
+			sourceTree = "<group>";
+		};
+		993D9FB519146C750041DF16 /* Objective-Async */ = {
+			isa = PBXGroup;
+			children = (
+				993D9FB619146C870041DF16 /* ObjectiveAsync.h */,
+				993D9FB719146C870041DF16 /* ObjectiveAsync.m */,
+				993D9FB819146C870041DF16 /* Utils */,
+			);
+			name = "Objective-Async";
+			path = Grades;
+			sourceTree = "<group>";
+		};
+		993D9FB819146C870041DF16 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				993D9FB919146C870041DF16 /* ObjectiveAsyncStep.h */,
+				993D9FBA19146C870041DF16 /* ObjectiveAsyncStep.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		999C85BB1908B44E0088F6BE /* Images */ = {
@@ -385,7 +409,6 @@
 				992CDF18190769AE000BAD82 /* InfoPlist.strings in Resources */,
 				999C85B71908B30C0088F6BE /* login.png in Resources */,
 				992CDF21190769AE000BAD82 /* Main.storyboard in Resources */,
-				993D9FA419146BE90041DF16 /* Objective-Async in Resources */,
 				999C85B01908B2A70088F6BE /* carletonlogo.png in Resources */,
 				999C85B81908B30C0088F6BE /* login@2x.png in Resources */,
 			);
@@ -410,8 +433,10 @@
 				992CDF24190769AE000BAD82 /* ViewController.m in Sources */,
 				992CDF1E190769AE000BAD82 /* AppDelegate.m in Sources */,
 				992CDF4B190769F4000BAD82 /* ServerAccess.m in Sources */,
+				993D9FBB19146C870041DF16 /* ObjectiveAsync.m in Sources */,
 				99E825A3190D41320014239A /* CacheObject.m in Sources */,
 				992CDF5A19077606000BAD82 /* Grade.m in Sources */,
+				993D9FBC19146C870041DF16 /* ObjectiveAsyncStep.m in Sources */,
 				999C85A319081FB20088F6BE /* MBProgressHUD.m in Sources */,
 				992CDF57190774CD000BAD82 /* KeyValue.m in Sources */,
 				999C859F190808B20088F6BE /* PersistanceManager.m in Sources */,
